@@ -4,6 +4,7 @@
     <b>Conecte a DEVs proximos!</b> 🦸‍
 </h4>
 <h2 align="center">
+    <br/>
   🚀 Semana Omnistack 10.0
 </h2>
 
