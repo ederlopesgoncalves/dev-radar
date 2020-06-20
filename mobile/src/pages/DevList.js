@@ -9,7 +9,6 @@ function DevList({ navigation }) {
   const isFocused = navigation.isFocused();
 
   if (isFocused) {
-    console.log("isFocused");
     loadInitial();
   }
 
