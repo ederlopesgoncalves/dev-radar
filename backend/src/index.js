@@ -11,18 +11,11 @@ const server = http.Server(app);
 
 setupWebsocket(server);
 
-var config = {
-      "USER"     : "<YOUR_MONGO_DB_USER>", 
-      "PASS"     : "<YOUR_MONGO_DB_PASS>",
-      "DATABASE" : "<YOUR_MONGO_DB_DATABASE>"
-};
+require('dotenv').config();
 
 var dbUrl = "mongodb+srv://"
-    + config.USER
-    + ":"
-    + config.PASS
-    + "@cluster0-<CLUSTER_ID>.mongodb.net/"
-    + config.DATABASE
+    + process.env.DB_USER + ":" + process.env.DB_PASS
+    + "@" + process.env.MONGO_DB_CLUSTER + "/" + process.env.DB_NAME
     +"?retryWrites=true&w=majority";
 
 mongoose.connect(
@@ -46,4 +39,4 @@ app.use(cors());
 app.use(express.json());
 app.use(routes);
 
-server.listen(3333, () => { console.log('Server is running...') });
+server.listen(process.env.SERVER_PORT, () => { console.log('Server is running...') });
